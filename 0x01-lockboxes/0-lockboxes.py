@@ -10,7 +10,7 @@ def canUnlockAll(boxes):
     """Determine if all boxes can be opened"""
     x = len(boxes)
     aList = [0]
-    for i in my list:
+    for i in aList:
         for j in boxes[i]:
             if j not in aList:
                 if j < x:

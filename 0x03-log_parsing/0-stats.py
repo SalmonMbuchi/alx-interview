@@ -2,6 +2,7 @@
 """Log parsing"""
 import sys
 
+
 def printInfo(dic, size):
     """ Prints information """
     print("File size: {:d}".format(size))

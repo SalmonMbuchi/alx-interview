@@ -10,13 +10,14 @@ else:
     sys.exit(1)
 
 try:
-    arg = int(sys.argv[1])    
+    arg = int(sys.argv[1])
 except ValueError:
     sys.exit(1)
 
 if arg < 4:
     print('N must be at least 4')
     sys.exit(1)
+
 
 def solveNQueens(n):
     """return every possible solution"""

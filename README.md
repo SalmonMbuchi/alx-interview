@@ -7,6 +7,7 @@ This repository contains all projects involving technical interview questions. T
 - [0x02-minimum_operations](./0x02-minimum_operations)
 - [0x03-log_parsing](./0x03-log_parsing)
 - [0x04-utf8_validation](./0x04-utf8_validation/)
+- [0x05-nqueens](./0x05-nqueens)
 
 ## Author ✒️
 

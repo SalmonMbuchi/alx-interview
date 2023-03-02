@@ -12,6 +12,7 @@ else:
 try:
     arg = int(sys.argv[1])
 except ValueError:
+    print('N must be a number') 
     sys.exit(1)
 
 if arg < 4:

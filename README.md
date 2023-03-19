@@ -8,6 +8,8 @@ This repository contains all projects involving technical interview questions. T
 - [0x03-log_parsing](./0x03-log_parsing)
 - [0x04-utf8_validation](./0x04-utf8_validation/)
 - [0x05-nqueens](./0x05-nqueens)
+- [0x06-starwars_api](./0x06-starwars_api)
+- [0x07-rotate_2d_matrix](./0x07-rotate_2d_matrix)
 
 ## Author ✒️
 

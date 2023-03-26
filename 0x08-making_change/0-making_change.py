@@ -3,6 +3,7 @@
 Change comes from within
 """
 
+
 def makeChange(coins, total):
     """
     Determine the fewest number of coins needed to meet the `total`
@@ -12,12 +13,12 @@ def makeChange(coins, total):
     if max(coins) > total or sum(coins) > total:
         return -1
     reversed = sorted(coins, reverse=True)
-    count = 0
+    count = 1
     first = reversed[0]
     for num in reversed:
-        # while(first <= total):
-        first = first + num
-        if first > total:
+        if num == first:
             continue
-        count += 1
+        while (first < total):
+            first = first + num
+            count += 1
     return count

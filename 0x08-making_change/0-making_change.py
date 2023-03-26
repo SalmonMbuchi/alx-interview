@@ -15,7 +15,7 @@ def makeChange(coins, total):
     for num in reversed:
         if total / num > 0:
             count = count + (total // num)
-            total = total % count
+            total = total % num
 
     if total != 0 or count == 0:
         return -1

@@ -10,15 +10,13 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    if max(coins) > total or sum(coins) > total:
-        return -1
     reversed = sorted(coins, reverse=True)
-    count = 1
-    first = reversed[0]
+    count = 0
     for num in reversed:
-        if num == first:
-            continue
-        while (first < total):
-            first = first + num
-            count += 1
+        if total / num > 0:
+            count = count + (total // num)
+            total = total % count
+
+    if total != 0 or count == 0:
+        return -1
     return count

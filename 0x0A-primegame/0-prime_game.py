@@ -1,46 +1,38 @@
 #!/usr/bin/python3
 """Prime Game"""
 
-def generate_primes(n):
-    """Generates all prime numbers up to `n`"""
-    primes = []
-    sieve = [True] * (n + 1)
-    sieve[0] = sieve[1] = False
-    for i in range(2, n + 1):
-        if sieve[i]:
-            primes.append(i)
-            for j in range(i * i, n + 1, i):
-                sieve[j] = False
-    return primes
-
-def can_win(primes, n):
-    """Determine which player can win"""
-    dp = [False] * (n + 1)
-    for i in range(2, n + 1):
-        if i in primes:
-            dp[i] = True
-        else:
-            for prime in primes:
-                if prime > i:
-                    break
-                if not dp[i - prime]:
-                    dp[i] = True
-                    break
-    return dp[n]
-
 def isWinner(x, nums):
-    """Determine the winner"""
-    maria_wins = 0
-    ben_wins = 0
-    for n in nums:
-        primes = generate_primes(n)
-        if can_win(primes, n):
-            maria_wins += 1
-        else:
-            ben_wins += 1
-    if maria_wins > ben_wins:
-        return 'Maria'
-    elif ben_wins > maria_wins:
-        return 'Ben'
-    else:
+    """Determines the winner"""
+
+    players = ('Maria', 'Ben')
+    winner = []
+    nums_len = len(nums) if nums else 0
+    if nums_len == 0:
         return None
+    for i in range(x):
+        z = nums[i] if i < nums_len else 0
+        z_nums = list(range(1, z + 1, 1))
+        prime = 2
+        turns = 0
+        while True:
+            remove_ocurred = False
+            prime_multiples = list(range(prime, z + 1, prime))
+            for multiple in prime_multiples:
+                if multiple in z_nums:
+                    z_nums.remove(multiple)
+                    remove_ocurred = True
+            turns += 1
+            if remove_ocurred:
+                for val in z_nums:
+                    if val > prime:
+                        prime = val
+                        break
+            else:
+                break
+        winner.append(players[turns % 2])
+    maria_wins = winner.count(players[0])
+    ben_wins = winner.count(players[1])
+    if maria_wins == ben_wins:
+        return None
+    return 'Maria' if maria_wins > ben_wins else 'Ben'
+
